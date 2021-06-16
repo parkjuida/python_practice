@@ -33,25 +33,40 @@ class OrderState(ABC):
 
 
 class InitOrderState(OrderState):
+    def __init__(self):
+        print("This is init order state")
+
     def update(self, order):
         order.state = PrepareOrderState()
 
 
 class PrepareOrderState(OrderState):
+    def __init__(self):
+        print("This is prepare order state")
+
     def update(self, order):
         order.state = DeliveryOrderState()
 
 
 class DeliveryOrderState(OrderState):
+    def __init__(self):
+        print("this is delivery order state")
+
     def update(self, order):
         order.state = CompleteOrderState()
 
 
 class CancelOrderState(OrderState):
+    def __init__(self):
+        print("This is cancel order state")
+
     def update(self, order):
         pass
 
 
 class CompleteOrderState(OrderState):
+    def __init__(self):
+        print("This is complete order state")
+
     def update(self, order):
         pass
